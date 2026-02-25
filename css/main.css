@@ -1,0 +1,46 @@
+@import url("./navbar.css");
+@import url("./banner.css");
+
+:root{
+    --cor-primaira: #EDE89D;
+    --cor-segundaria: #19b5a5;
+    --cor-contraste: #FF6933;
+    --cor-texto: #5E5473;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    color: var(--cor-texto);
+}
+
+a{
+    text-decoration: none;
+    color: var(--cor-texto);
+}
+
+
+h1{
+    margin: 0;
+    font-size: 27px;
+}
+
+.section-container{
+    max-width: 1750px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/*Botões Padronizados*/
+
+.botao{
+    width: 120px;
+    height: 40px;
+    padding: 5px;
+    border: 0px;
+    border-radius: 24px;
+}

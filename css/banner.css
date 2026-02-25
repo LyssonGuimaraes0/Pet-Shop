@@ -1,0 +1,56 @@
+/*Banner background*/
+
+.banner-head {
+    height: 90vh;
+    background: #CCCCCC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.banner-img {
+    width: 45%;
+    filter: brightness(0.8);
+    position: relative;
+    top: 50px;
+    right: 15%;
+}
+
+/*Container para Configura titulo e botões embaixo do outro*/
+.container-banner{
+    display: grid;
+    flex-direction: column;
+}
+
+/**/
+
+/*Titulo do banner*/
+.Titulo-banner{
+    position: relative;
+    width: 280px;
+    height: 300px;
+    
+}
+
+.Titulo-banner span{
+    font-size: 78px;
+    color: var(--cor-contraste);
+}
+
+.Titulo-banner p{
+    font-size: 24px;
+    color: var(--cor-texto);
+
+}
+
+/**/
+
+/*Botoes do banner*/
+
+.botoes-banner{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
