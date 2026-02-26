@@ -6,6 +6,8 @@
     --cor-segundaria: #19b5a5;
     --cor-contraste: #FF6933;
     --cor-texto: #5E5473;
+    --cor-escura: #41033C;
+    --cor-branco:azure ;
 }
 
 body{
@@ -43,4 +45,16 @@ h1{
     padding: 5px;
     border: 0px;
     border-radius: 24px;
+    background-color: var(--cor-escura);
+    color: var(--cor-branco);
+    transition: 0.5s ease-in-out;
+}
+
+.botao:hover{
+    background-color: var(--cor-segundaria);
+    color: var(--cor-escura);
+    font-weight: bold;
+    font-size: 12px;
+    transform: scale(1.1);
+
 }
