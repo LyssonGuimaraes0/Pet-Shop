@@ -37,3 +37,11 @@ setInterval(() => {
     animacao_banner();
 }, 5000);
 
+
+
+//-----------------------------------------------------------//
+
+//Função de ativação de Navbar Mobile
+
+
+

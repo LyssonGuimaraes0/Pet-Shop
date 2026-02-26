@@ -28,13 +28,19 @@ a{
 
 h1{
     margin: 0;
-    font-size: 27px;
+    font-size: 40px;
+    text-align: center;
 }
 
 .section-container{
     max-width: 1750px;
     width: 100%;
     margin: 0 auto;
+}
+
+.section{
+    margin: 50px;
+    padding: 30px;
 }
 
 /*Botões Padronizados*/
@@ -56,5 +62,4 @@ h1{
     font-weight: bold;
     font-size: 12px;
     transform: scale(1.1);
-
 }

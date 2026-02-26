@@ -21,12 +21,15 @@
 
 /*NavBar*/
 
+/*Logo navbar*/
 .logo-navbar {
     padding: 10px;
     align-content: center;
 }
 
-.menu-navbar {
+/**/
+
+.menu-navbar{
     padding: 5px;
     align-content: center;
     margin-right: 15px;
@@ -107,5 +110,69 @@
     min-height: 90px;
     top: 57px;
     right: 65px;
+    z-index: 1;
+}
+
+
+/*Configuração menu mobile*/
+
+.menu-mobile{
+    display: none;
+    color: var(--cor-escura);
+    margin-right: 20px;
+    padding: 10px;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.menu-mobile i{
+    width: 100%;
+}
+
+
+.imagem-logo{
+    width: 90px;
+}
+
+/*Aparece na versõa mobile*/
+
+.mobile-logo{
+    position: relative;
+    top: 35px;
+    left: 45px;
+    z-index: 3;
+}
+
+
+
+
+@media (max-width: 620px){
+    .menu-mobile{
+        display: block;
+    }
+
+
+    .menu-navbar{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 260px;
+        height: 900px;
+        padding: 20px;
+        flex-direction: column;
+        background-color:color-mix(in srgb, var(--cor-primaira), white 30%);
+    }
+
+    .links-navbar{
+        position: absolute;
+        flex-direction: column;
+        top: 200px;
+    }
+
+    .imagem-logo{
+        width: 120px;
+    }
+
+
 }
 
