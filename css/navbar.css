@@ -1,37 +1,111 @@
 /*Barra de Navegação*/
-.navbar{
+.navbar {
     width: 100%;
-    height: 70px;
+    height: 90px;
     display: grid;
     background-color: color-mix(in srgb, var(--cor-primaira), white 50%);
     position: fixed;
-    z-index: 2;
+    z-index: 1;
+    padding: 7px;
+
 }
 
-.navbar-head{
+.navbar-head {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
 }
 
 /**/
 
 /*NavBar*/
 
-.logo-navbar{
+.logo-navbar {
     padding: 10px;
     align-content: center;
 }
 
-.menu-navbar{
+.menu-navbar {
     padding: 5px;
     align-content: center;
     margin-right: 15px;
+    z-index: 2;
 
 }
 
-.links-navbar{
+.links-navbar {
     display: flex;
     justify-content: space-around;
-    gap: 15px;
+    gap: 45px;
+    font-size: 20px;
 }
+
+
+
+.link-navbar {
+    position: relative;
+}
+
+.link-navbar a{
+    transition: 1s ease;
+}
+
+.link-navbar a:hover{
+    color: var(--cor-segundaria);
+    font-weight: bold;
+}
+
+/*Criar linha*/
+.link-navbar::after {
+    content: " ";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: var(--cor-segundaria);
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+/*Pata de gato*/
+
+
+.link-navbar a:hover::after{
+    content: " ";
+    position: absolute;
+    width: 22px;
+    height: 20px;
+    background-color: var(--cor-segundaria);
+    mask-image: url("../imagem/icons/pata_icon.png") ;
+    -webkit-mask-image: url("../imagem/icons/pata_icon.png") ;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    left: -25px;
+    
+}
+
+.link-navbar:hover::after{
+    width: 100%;
+}
+
+/* Circulo*/
+
+.circulo {
+    position: absolute;
+    min-width: 150px;
+    min-height: 150px;
+    border: 0;
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--cor-primaira), white 50%);
+    z-index: 1;
+    top: 27px;
+    right: -50px;
+}
+
+.circulo-pequeno {
+    min-width: 90px;
+    min-height: 90px;
+    top: 57px;
+    right: 65px;
+}
+
