@@ -1,26 +1,35 @@
 /*Banner background*/
 
 .banner-head {
-    height: 90vh;
+    min-height: 90vh;
     background: #CCCCCC;
     display: flex;
+    gap: 5%;
     justify-content: center;
     align-items: center;
 }
 
+.container-imagem {
+    flex: 1;
+    min-width: 400px; 
+    max-width: 700px;
+    display: flex;
+    overflow: hidden;
+}
+
 
 .banner-img {
-    width: 697px;
+    width: 100%;
+    height: auto;
     filter: brightness(0.8);
-    position: relative;
-    top: 50px;
-    right: 15%;
+    object-fit: contain;
 }
 
 /*Container para Configura titulo e botões embaixo do outro*/
 .container-banner {
     display: grid;
     flex-direction: column;
+    padding: 50px;
 }
 
 /**/
@@ -30,6 +39,7 @@
     position: relative;
     width: 280px;
     height: 300px;
+    padding: 10px;
 
 }
 
@@ -40,11 +50,12 @@
 
 .Titulo-banner span {
     display: inline-block;
-    font-size: 78px;
+    font-size: 68px;
     color: var(--cor-contraste);
-    animation: animacao_subir 2s ease;
-    animation-fill-mode: forwards;
 }
+
+    /* animation: animacao_desce 2s ease;
+    animation-fill-mode: forwards; */
 
 .Titulo-banner p {
     font-size: 24px;
@@ -52,7 +63,16 @@
 
 }
 
+.container-texto-animados{
+    width: 600px;
+    height: 100px;
+    margin-bottom: 20px;
+    
+}
+
 /**/
+
+
 
 /*Botoes do banner*/
 
@@ -64,13 +84,22 @@
 
 /*Teste de animacao*/
 
+
+.texto-animado{
+    display: none !important;
+}
+
+.texto-active{
+    display: flex !important;
+}
+
 @keyframes animacao_subir {
 
     0% {
-       transform: translateY(0);
+        transform: translateY(0);
     }
 
-    30%{
+    30% {
         opacity: 30%;
     }
 
@@ -79,8 +108,24 @@
         opacity: 0;
     }
 
-    100%{
-        opacity: 0; 
+
+}
+
+@keyframes animacao_desce {
+
+    0% {
+        transform: translateY(25px);
+        opacity: 0;
     }
+
+    30% {
+        opacity: 70%;
+    }
+
+    50% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+
 
 }
