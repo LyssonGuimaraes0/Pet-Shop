@@ -5,6 +5,7 @@
     display: grid;
     background-color: color-mix(in srgb, var(--cor-primaira), white 50%);
     position: fixed;
+    z-index: 2;
 }
 
 .navbar-head{
