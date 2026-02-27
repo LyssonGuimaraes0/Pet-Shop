@@ -15,6 +15,12 @@ body{
     padding: 0;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 ul {
     list-style: none;
     color: var(--cor-texto);
@@ -33,9 +39,10 @@ h1{
 }
 
 .section-container{
-    max-width: 1750px;
     width: 100%;
-    margin: 0 auto;
+    max-width: 1450px;
+    margin: 0 auto;   
+    padding: 0 20px;
 }
 
 .section{
@@ -46,7 +53,7 @@ h1{
 /*Botões Padronizados*/
 
 .botao{
-    width: 130px;
+    width: 170px;
     height: 40px;
     padding: 5px;
     border: 0px;
@@ -62,4 +69,11 @@ h1{
     font-weight: bold;
     font-size: 12px;
     transform: scale(1.1);
+}
+
+
+@media (max-width:620px){
+    .section-container{
+        max-width: 560px;
+    }
 }

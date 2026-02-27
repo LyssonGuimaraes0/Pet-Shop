@@ -2,20 +2,24 @@
 .navbar {
     width: 100%;
     height: 90px;
-    display: grid;
     background-color: color-mix(in srgb, var(--cor-primaira), white 50%);
     position: fixed;
-    z-index: 1;
-    padding: 7px;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    display: flex;
+    justify-content: center;
 
 }
 
 .navbar-head {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-
 }
+
 
 /**/
 
@@ -40,7 +44,7 @@
 .links-navbar {
     display: flex;
     justify-content: space-around;
-    gap: 45px;
+    gap: 30px;
     font-size: 20px;
 }
 
@@ -92,35 +96,13 @@
     width: 100%;
 }
 
-/* Circulo*/
-
-.circulo {
-    position: absolute;
-    min-width: 150px;
-    min-height: 150px;
-    border: 0;
-    border-radius: 50%;
-    background-color: color-mix(in srgb, var(--cor-primaira), white 50%);
-    z-index: 1;
-    top: 27px;
-    right: -50px;
-}
-
-.circulo-pequeno {
-    min-width: 90px;
-    min-height: 90px;
-    top: 57px;
-    right: 65px;
-    z-index: 1;
-}
-
 
 /*Configuração menu mobile*/
 
 .menu-mobile {
     display: none;
     color: var(--cor-escura);
-    margin-right: 20px;
+    margin-right: 40px;
     padding: 10px;
     font-size: 20px;
     z-index: 2;
@@ -161,10 +143,10 @@
     width: 120px;
 }
 
-.navbar-out{
+.navbar-out {
     visibility: hidden;
-    width: 100vw;
-    height: 200vw;
+    width: 100%;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -176,14 +158,25 @@
 
 }
 
-.navbar-out-active{
+.navbar-out-active {
     visibility: visible;
     opacity: 0.3;
     pointer-events: auto;
 }
 
+@media (max-width:1116px) {
+    .navbar {
+        height: 70px;
+    }
+
+
+    .imagem-logo {
+        width: 75px;
+    }
+}
+
 @media (min-width:620px) {
-    .navbar-out-active{
+    .navbar-out-active {
         visibility: hidden;
         pointer-events: none;
     }
@@ -202,12 +195,13 @@
 
 
     .menu-navbar {
-        position: absolute;
+        position: fixed;
         top: 0;
-        left: -357px;
+        left: 0;
         width: 260px;
-        height: 950px;
+        height: 100vh;
         padding: 20px;
+        transform: translateX(-100%);
         flex-direction: column;
         background-color: color-mix(in srgb, var(--cor-primaira), white 30%);
         transition: 1s ease;
@@ -215,7 +209,7 @@
     }
 
     .menu-mobile-active {
-        left: 0 !important;
+        transform: translateX(0)
     }
 
     .botao-fechar-menu {
@@ -225,8 +219,36 @@
     .links-navbar {
         position: absolute;
         flex-direction: column;
-        top: 200px;
+        gap: 25px;
+        top: 210px;
+        left: 61px;
     }
 
 
+}
+
+@media (max-width: 592px) {
+    .menu-mobile {
+        margin-right: 65px;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .menu-mobile {
+        margin-right: 100px;
+    }
+}
+
+@media (max-width: 430px) {
+    .menu-mobile {
+        margin-right: 130px;
+    }
+
+}
+
+@media (max-width:398px) {
+    .menu-mobile {
+        margin-right: 40%;
+    }
 }
