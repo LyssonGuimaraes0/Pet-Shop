@@ -1,5 +1,5 @@
 //funcao para arredondar numero e gera um intero com limite definido
-function arredondar_numero(min,max) {
+function arredondar_numero(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -12,25 +12,25 @@ function animacao_banner() {
     let texto;
     const texto_ativo = document.querySelector(".texto-active");
     //Repetição para não repetir a mesma frase
-    do{
-        let numero = arredondar_numero(1,5);
+    do {
+        let numero = arredondar_numero(1, 5);
         const id_formatado = "texto-banner-" + numero;
         //Coleta elementos presentes na página
         texto = document.getElementById(id_formatado);
-        
-    }while (texto === texto_ativo);
+
+    } while (texto === texto_ativo);
 
     //alteração de css
     texto_ativo.style.animation = "animacao_subir 2s ease"
     texto_ativo.style.animationFillMode = "forwards";
     //Delay para animação acontecer
-    setTimeout(function(){
+    setTimeout(function () {
         texto_ativo.classList.remove('texto-active');
         texto.style.animation = "animacao_desce 2s ease"
         texto.style.animationFillMode = "forwards";
         texto.classList.add('texto-active');
-    },1000)
-    
+    }, 1000)
+
 }
 
 setInterval(() => {
@@ -42,6 +42,43 @@ setInterval(() => {
 //-----------------------------------------------------------//
 
 //Função de ativação de Navbar Mobile
+
+const botaoMenu = document.querySelector('.menu-mobile');
+const menuMobile = document.querySelector('.menu-navbar');
+const logoDesktop = document.querySelector('.logo-navbar');
+
+
+function fecharMenuMobile() {
+    menuMobile.classList.remove('menu-mobile-active');
+    logoDesktop.style.display = "block";
+}
+
+botaoMenu.addEventListener('click', function () {
+    menuMobile.classList.toggle('menu-mobile-active');
+});
+
+//Configurações de botão X Para fechar Menu
+
+const fecharMobile = document.querySelector('.botao-fechar-menu');
+fecharMobile.addEventListener('click', function (){
+    fecharMenuMobile();
+});
+
+const links = document.querySelectorAll('.link-navbar');
+
+links.forEach(link => {
+    link.addEventListener('click', function () {
+        fecharMenuMobile();
+    })
+});
+
+
+
+
+
+
+
+
 
 
 

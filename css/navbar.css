@@ -29,7 +29,7 @@
 
 /**/
 
-.menu-navbar{
+.menu-navbar {
     padding: 5px;
     align-content: center;
     margin-right: 15px;
@@ -50,11 +50,11 @@
     position: relative;
 }
 
-.link-navbar a{
+.link-navbar a {
     transition: 1s ease;
 }
 
-.link-navbar a:hover{
+.link-navbar a:hover {
     color: var(--cor-segundaria);
     font-weight: bold;
 }
@@ -70,24 +70,25 @@
     left: 0;
     transition: 0.5s ease-in-out;
 }
+
 /*Pata de gato*/
 
 
-.link-navbar a:hover::after{
+.link-navbar a:hover::after {
     content: " ";
     position: absolute;
     width: 22px;
     height: 20px;
     background-color: var(--cor-segundaria);
-    mask-image: url("../imagem/icons/pata_icon.png") ;
-    -webkit-mask-image: url("../imagem/icons/pata_icon.png") ;
+    mask-image: url("../imagem/icons/pata_icon.png");
+    -webkit-mask-image: url("../imagem/icons/pata_icon.png");
     -webkit-mask-size: contain;
     mask-size: contain;
     left: -25px;
-    
+
 }
 
-.link-navbar:hover::after{
+.link-navbar:hover::after {
     width: 100%;
 }
 
@@ -116,63 +117,87 @@
 
 /*Configuração menu mobile*/
 
-.menu-mobile{
+.menu-mobile {
     display: none;
     color: var(--cor-escura);
     margin-right: 20px;
     padding: 10px;
     font-size: 20px;
     z-index: 2;
+    cursor: pointer;
 }
 
-.menu-mobile i{
+.botao-fechar-menu {
+    display: none;
+    color: var(--cor-escura);
+    padding: 10px;
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu-mobile i {
     width: 100%;
 }
 
 
-.imagem-logo{
+.imagem-logo {
     width: 90px;
 }
 
 /*Aparece na versõa mobile*/
 
-.mobile-logo{
-    position: relative;
-    top: 35px;
-    left: 45px;
-    z-index: 3;
+.logo-mobile {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 60px;
+
+}
+
+.logo-mobile img {
+    width: 120px;
 }
 
 
-
-
-@media (max-width: 620px){
-    .menu-mobile{
+@media (max-width: 620px) {
+    .menu-mobile {
         display: block;
     }
 
+    .logo-mobile {
+        display: block;
 
-    .menu-navbar{
+    }
+
+
+    .menu-navbar {
         position: absolute;
         top: 0;
-        left: 0;
+        left: -357px;
         width: 260px;
         height: 900px;
         padding: 20px;
         flex-direction: column;
-        background-color:color-mix(in srgb, var(--cor-primaira), white 30%);
+        background-color: color-mix(in srgb, var(--cor-primaira), white 30%);
+        transition: 1s ease;
     }
 
-    .links-navbar{
+    .menu-mobile-active {
+        left: 0 !important;
+    }
+
+    .botao-fechar-menu {
+        display: block;
+    }
+
+    .links-navbar {
         position: absolute;
         flex-direction: column;
         top: 200px;
     }
 
-    .imagem-logo{
-        width: 120px;
-    }
-
 
 }
-
