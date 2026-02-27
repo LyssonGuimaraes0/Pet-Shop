@@ -1,0 +1,19 @@
+.rodape{
+    width: 100%;
+    height: 120px;
+    background-color: color-mix( var(--cor-escura), black 50%);
+    padding: 15px;
+}
+
+.titulo-rodape{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.titulo-rodape span{
+    margin-bottom: 5px;
+}
+

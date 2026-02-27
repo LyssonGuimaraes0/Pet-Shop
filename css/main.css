@@ -1,6 +1,7 @@
 @import url("./navbar.css");
 @import url("./banner.css");
 @import url("./sobre.css");
+@import url("./rodape.css");
 
 :root{
     --cor-primaira: #EDE89D;
@@ -36,6 +37,11 @@ p{
     font-size: 24px;
     color: var(--cor-texto);
     margin-bottom: 5px;
+}
+
+span{
+    font-size: 18px;
+    color: var(--cor-branco);
 }
 
 

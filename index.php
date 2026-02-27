@@ -13,6 +13,9 @@
     <!--sobre nós-->
     <?php include('./snippets/sobre_nos.html') ?>
 
+    <!--sobre nós-->
+    <?php include('./snippets/rodape.html') ?>
+
     <!--Chamada de Script-->
     <?php include('./snippets/script.html') ?>
 
