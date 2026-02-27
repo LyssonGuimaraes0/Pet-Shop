@@ -46,15 +46,18 @@ setInterval(() => {
 const botaoMenu = document.querySelector('.menu-mobile');
 const menuMobile = document.querySelector('.menu-navbar');
 const logoDesktop = document.querySelector('.logo-navbar');
-
+const navOut = document.querySelector('.navbar-out');
 
 function fecharMenuMobile() {
     menuMobile.classList.remove('menu-mobile-active');
+    navOut.classList.remove('navbar-out-active');
     logoDesktop.style.display = "block";
 }
 
 botaoMenu.addEventListener('click', function () {
     menuMobile.classList.toggle('menu-mobile-active');
+    navOut.classList.add('navbar-out-active');
+    console.log(navOut)
 });
 
 //Configurações de botão X Para fechar Menu
@@ -64,6 +67,8 @@ fecharMobile.addEventListener('click', function (){
     fecharMenuMobile();
 });
 
+//Configurações dos links Para fechar Menu
+
 const links = document.querySelectorAll('.link-navbar');
 
 links.forEach(link => {
@@ -72,7 +77,11 @@ links.forEach(link => {
     })
 });
 
+//Configurações do background para caso receba um click fechar o Menu
 
+navOut.addEventListener('click', function(){
+    fecharMenuMobile();
+})
 
 
 
