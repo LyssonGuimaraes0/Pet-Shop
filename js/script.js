@@ -52,13 +52,11 @@ function fecharMenuMobile() {
     menuMobile.classList.remove('menu-mobile-active');
     navOut.classList.remove('navbar-out-active');
     logoDesktop.style.display = "block";
-    document.body.style.overflow = 'auto'
 }
 
 botaoMenu.addEventListener('click', function () {
     menuMobile.classList.toggle('menu-mobile-active');
     navOut.classList.add('navbar-out-active');
-    document.body.style.overflow = 'hidden';
 });
 
 //Configurações de botão X Para fechar Menu
