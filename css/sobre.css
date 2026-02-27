@@ -1,0 +1,127 @@
+.container-sobre {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+.titulo {
+    padding: 20px;
+    margin-bottom: 100px;
+}
+
+.container-image-conteudo {
+    width: 460px;
+    height: 430px;
+    border: 0px;
+    border-radius: 50px;
+    background-color: var(--cor-segundaria);
+    position: relative;
+
+}
+
+.quadrado {
+    position: absolute;
+    width: 350px;
+    height: 320px;
+    border: 0px;
+    border-radius: 80px;
+    background-color: var(--cor-contraste);
+    z-index: 1;
+    transform: translate(-50px, -50px);
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+
+}
+
+.imagem-sobre {
+    z-index: 2;
+    position: absolute;
+}
+
+.container-conteudo {
+    width: 650px;
+    height: 450px;
+    padding: 20px;
+    height: auto;
+    background-color: color-mix(in srgb, var(--cor-primaira), white 50%);
+    border: 0;
+    border-radius: 0px 24px 8px 24px;
+}
+
+.texto p {
+    margin: 15px;
+}
+
+
+@media (max-width:1290px) {
+    .container-image-conteudo {}
+
+    .container-conteudo {
+        width: 550px;
+        height: 450px;
+    }
+
+    .texto p {
+        font-size: 22px;
+    }
+}
+
+
+@media (max-width:1078px) {
+    .container-sobre {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 620px) {
+    .grupo-imagem {
+        transform: scale(0.9);
+        align-self: center;
+    }
+
+    .container-conteudo {
+        width: 470px;
+    }
+
+    .texto p {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 508px) {
+    .grupo-imagem {
+        transform: scale(0.8);
+    }
+
+    .container-conteudo {
+        width: 403px;
+    height: 455px;
+
+    }
+
+    .container-sobre{
+        align-items: normal;
+    }
+
+    .texto p {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 448px) {
+    .grupo-imagem {
+        transform: scale(0.7);
+        margin-left: -25px;
+    }
+
+    .container-conteudo {
+        width: 347px;
+        height: 571px;
+        margin: 0 26px;
+      }
+
+}
