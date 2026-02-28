@@ -22,6 +22,14 @@
 
 }
 
+.grupo-imagem {
+    transition: 1s ease;
+}
+
+.grupo-imagem-ativo {
+    transform: scale(1.2);
+}
+
 .quadrado {
     position: absolute;
     width: 350px;
@@ -56,7 +64,6 @@
 
 
 @media (max-width:1290px) {
-    .container-image-conteudo {}
 
     .container-conteudo {
         width: 550px;
@@ -99,11 +106,11 @@
 
     .container-conteudo {
         width: 403px;
-    height: 455px;
+        height: 455px;
 
     }
 
-    .container-sobre{
+    .container-sobre {
         align-items: normal;
     }
 
@@ -122,6 +129,6 @@
         width: 347px;
         height: 571px;
         margin: 0 26px;
-      }
+    }
 
 }

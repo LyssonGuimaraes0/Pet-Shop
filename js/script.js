@@ -36,7 +36,7 @@ function animacao_banner() {
 setInterval(() => {
     animacao_banner();
 }, 5000);
- 
+
 
 
 //-----------------------------------------------------------//
@@ -62,7 +62,7 @@ botaoMenu.addEventListener('click', function () {
 //Configurações de botão X Para fechar Menu
 
 const fecharMobile = document.querySelector('.botao-fechar-menu');
-fecharMobile.addEventListener('click', function (){
+fecharMobile.addEventListener('click', function () {
     fecharMenuMobile();
 });
 
@@ -78,9 +78,37 @@ links.forEach(link => {
 
 //Configurações do background para caso receba um click fechar o Menu
 
-navOut.addEventListener('click', function(){
+navOut.addEventListener('click', function () {
     fecharMenuMobile();
 })
+
+
+//-----------------------------------------------------------//
+
+//Sistema de scroll suave
+
+links.forEach(link => {
+    const links_a = link.querySelectorAll("a");
+
+    links_a.forEach(link_a => {
+        link_a.addEventListener('click', function () {
+            event.preventDefault();
+            const idLink = link_a.getAttribute("href");
+            let idFormatado = idLink.replace("#", "");
+
+            const section = document.getElementById(idFormatado);
+            section.scrollIntoView({
+                behavior: 'smooth', block: 'start'
+            })
+        });
+
+    });
+});
+
+//-----------------------------------------------------------//
+
+
+
 
 
 
