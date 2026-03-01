@@ -97,9 +97,12 @@ links.forEach(link => {
             let idFormatado = idLink.replace("#", "");
 
             const section = document.getElementById(idFormatado);
+            section.style.scrollMarginTop = "65px";
             section.scrollIntoView({
                 behavior: 'smooth', block: 'start'
             })
+
+
         });
 
     });
@@ -110,20 +113,33 @@ links.forEach(link => {
 //Função de carrosel
 
 const containerCarrosel = document.querySelector(".container-carrosel");
-let slides = document.querySelectorAll('.item-carrosel');
+let slides = document.querySelectorAll(".item-carrosel");
 
-//coletar tamanho do slide
-let slideWidth = slides[0].offsetWidth;
-let containerWidth = containerCarrosel.offsetWidth;
-let gap = 60;
+let index = 1;
+let isAnimating = false;
+
+// Clona primeiro e último
+const clonePrimeiro = slides[0].cloneNode(true);
+const cloneUltimo = slides[slides.length - 1].cloneNode(true);
+
+containerCarrosel.appendChild(clonePrimeiro);
+containerCarrosel.insertBefore(cloneUltimo, slides[0]);
+
+// Atualiza lista
+slides = document.querySelectorAll(".item-carrosel");
+
+// Move inicial
+moverCarrosel();
+updateActive();
 
 function moverCarrosel() {
 
+    const slideWidth = slides[0].offsetWidth;
+    const estilos = getComputedStyle(containerCarrosel);
+    const gap = parseInt(estilos.gap) || 0;
+
     const container = document.querySelector(".carrosel");
     const containerWidth = container.offsetWidth;
-
-    const estilos = getComputedStyle(containerCarrosel);
-    const gap = parseInt(estilos.gap);
 
     const posicao =
         (slideWidth + gap) * index
@@ -133,59 +149,50 @@ function moverCarrosel() {
         `translateX(-${posicao}px)`;
 }
 
-//cria index de Elemento Atual
-let index = 1;
+// NEXT
+document.querySelector(".next").addEventListener("click", () => {
 
-//clona o primeiro e ultimo elemento
-const clonePrimeiro = slides[0].cloneNode(true);
-const cloneUltimo = slides[slides.length - 1].cloneNode(true);
+    if (isAnimating) return;
+    isAnimating = true;
 
-//adiciona os elementos falsos na frente e atras do carrosel oficial
-
-containerCarrosel.appendChild(clonePrimeiro);
-containerCarrosel.insertBefore(cloneUltimo, slides[0]);
-
-//Atualiza lista novamente
-slides = document.querySelectorAll(".item-carrosel");
-moverCarrosel();
-updateActive();
-
-
-//logica dos botoes
-const botaoNext = document.querySelector('.next').addEventListener('click', function () {
-    //impede do sistema quebra na troca do falso para o verdadeiro
-    if (index >= slides.length - 1) return;
     index++;
     containerCarrosel.style.transition = "0.5s ease";
     moverCarrosel();
+
+    setTimeout(corrigirLoop, 500);
 });
 
-const botaoPrev = document.querySelector('.prev').addEventListener('click', function () {
-    //impede do sistema quebra na troca do falso para o verdadeiro
-    if (index < 0) return;
+// PREV
+document.querySelector(".prev").addEventListener("click", () => {
+
+    if (isAnimating) return;
+    isAnimating = true;
+
     index--;
     containerCarrosel.style.transition = "0.5s ease";
     moverCarrosel();
+
+    setTimeout(corrigirLoop, 100);
 });
 
-//Subistiuição de elemento falso para verdadeiro
+function corrigirLoop() {
 
-containerCarrosel.addEventListener("transitionend", () => {
-    if (slides[index] === clonePrimeiro) {
-        containerCarrosel.style.transition = "none";
-        index = 1;
-        moverCarrosel();
-
-    }
-
-    if (slides[index] === cloneUltimo) {
+    if (index === 0) {
         containerCarrosel.style.transition = "none";
         index = slides.length - 2;
         moverCarrosel();
     }
 
-     updateActive();
-});
+    if (index === slides.length - 1) {
+        
+        containerCarrosel.style.transition = "none";
+        index = 1;
+        moverCarrosel();
+    }
+
+    isAnimating = false;
+    updateActive();
+}
 
 function updateActive() {
     slides.forEach(slide => {
@@ -194,30 +201,3 @@ function updateActive() {
 
     slides[index].classList.add("item-carrosel-active");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
