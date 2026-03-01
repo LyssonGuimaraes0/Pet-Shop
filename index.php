@@ -13,7 +13,10 @@
     <!--sobre nós-->
     <?php include('./snippets/sobre_nos.html') ?>
 
-    <!--sobre nós-->
+    <!--Nossa equipe-->
+    <?php include('./snippets/equipe.html') ?>
+
+    <!--rodape-->
     <?php include('./snippets/rodape.html') ?>
 
     <!--Chamada de Script-->

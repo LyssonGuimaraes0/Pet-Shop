@@ -2,6 +2,7 @@
 @import url("./banner.css");
 @import url("./sobre.css");
 @import url("./rodape.css");
+@import url("./equipe.css");
 
 :root{
     --cor-primaira: #EDE89D;

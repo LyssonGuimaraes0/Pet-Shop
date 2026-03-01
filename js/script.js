@@ -107,6 +107,109 @@ links.forEach(link => {
 
 //-----------------------------------------------------------//
 
+//Função de carrosel
+
+const containerCarrosel = document.querySelector(".container-carrosel");
+let slides = document.querySelectorAll('.item-carrosel');
+
+//coletar tamanho do slide
+let slideWidth = slides[0].offsetWidth;
+let containerWidth = containerCarrosel.offsetWidth;
+let gap = 60;
+
+function moverCarrosel() {
+
+    const container = document.querySelector(".carrosel");
+    const containerWidth = container.offsetWidth;
+
+    const estilos = getComputedStyle(containerCarrosel);
+    const gap = parseInt(estilos.gap);
+
+    const posicao =
+        (slideWidth + gap) * index
+        - (containerWidth / 2 - slideWidth / 2);
+
+    containerCarrosel.style.transform =
+        `translateX(-${posicao}px)`;
+}
+
+//cria index de Elemento Atual
+let index = 1;
+
+//clona o primeiro e ultimo elemento
+const clonePrimeiro = slides[0].cloneNode(true);
+const cloneUltimo = slides[slides.length - 1].cloneNode(true);
+
+//adiciona os elementos falsos na frente e atras do carrosel oficial
+
+containerCarrosel.appendChild(clonePrimeiro);
+containerCarrosel.insertBefore(cloneUltimo, slides[0]);
+
+//Atualiza lista novamente
+slides = document.querySelectorAll(".item-carrosel");
+moverCarrosel();
+updateActive();
+
+
+//logica dos botoes
+const botaoNext = document.querySelector('.next').addEventListener('click', function () {
+    //impede do sistema quebra na troca do falso para o verdadeiro
+    if (index >= slides.length - 1) return;
+    index++;
+    containerCarrosel.style.transition = "0.5s ease";
+    moverCarrosel();
+});
+
+const botaoPrev = document.querySelector('.prev').addEventListener('click', function () {
+    //impede do sistema quebra na troca do falso para o verdadeiro
+    if (index < 0) return;
+    index--;
+    containerCarrosel.style.transition = "0.5s ease";
+    moverCarrosel();
+});
+
+//Subistiuição de elemento falso para verdadeiro
+
+containerCarrosel.addEventListener("transitionend", () => {
+    if (slides[index] === clonePrimeiro) {
+        containerCarrosel.style.transition = "none";
+        index = 1;
+        moverCarrosel();
+
+    }
+
+    if (slides[index] === cloneUltimo) {
+        containerCarrosel.style.transition = "none";
+        index = slides.length - 2;
+        moverCarrosel();
+    }
+
+     updateActive();
+});
+
+function updateActive() {
+    slides.forEach(slide => {
+        slide.classList.remove("item-carrosel-active");
+    });
+
+    slides[index].classList.add("item-carrosel-active");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
